@@ -1,8 +1,13 @@
+import styles from "/src/components/Home/Home.module.css";
+
 function Home() {
   return (
-    <div>
-      {" "}
-      <h1>Hello this is home page</h1>
+    <div className={styles.home}>
+      <div className={styles.imageWrapper}>
+        <img src="/public/9782010.jpg" width="1521" height="646" />
+      </div>
+
+      <h1>Styled with Passion</h1>
     </div>
   );
 }

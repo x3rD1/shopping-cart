@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
-import Home from "../Home/Home";
 import Nav from "../Nav/Nav";
+import "./App.css";
 
 function App() {
   return (
