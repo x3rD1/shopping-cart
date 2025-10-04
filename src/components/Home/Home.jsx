@@ -8,7 +8,7 @@ function Home() {
           src="/9782010.jpg"
           alt="background image"
           width="1521"
-          height="646"
+          height="auto"
         />
       </div>
 
