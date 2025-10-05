@@ -1,14 +1,62 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import styles from "./Nav.module.css";
 
 function Nav() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
         <img src="/cool-apparel.png" alt="cool apparel logo" />
       </div>
 
-      <ul>
+      <div className={styles.hamburgerContainer}>
+        <button
+          className={styles.hamburger}
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div
+        className={`${styles.menu} ${
+          isOpen ? styles.menuOpen : styles.menuClosed
+        }`}
+      >
+        <ul>
+          <li>
+            <Link to="/" onClick={() => setIsOpen(false)}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="shop" onClick={() => setIsOpen(false)}>
+              Shop
+            </Link>
+          </li>
+          <li>
+            <Link to="sale" onClick={() => setIsOpen(false)}>
+              Sale
+            </Link>
+          </li>
+          <li>
+            <Link to="blog" onClick={() => setIsOpen(false)}>
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link to="showcase" onClick={() => setIsOpen(false)}>
+              Showcase
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <ul className={isOpen ? styles.open : ""}>
         <li>
           <Link to="/">Home</Link>
         </li>

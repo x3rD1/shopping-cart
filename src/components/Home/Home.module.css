@@ -18,7 +18,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(183, 148, 244, 0.15); /* lavender tint (#b794f4) */
+  background: rgba(183, 148, 244, 0.15);
   z-index: 1;
 }
 
@@ -32,7 +32,7 @@
 
 .home h1 {
   font-size: 3.5rem;
-  color: rgb(183, 148, 244); /* vibrant purple accent */
+  color: rgb(183, 148, 244);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.555),
     0 0 12px rgba(107, 33, 168, 0.596);
   z-index: 1;
