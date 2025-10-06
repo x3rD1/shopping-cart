@@ -164,16 +164,13 @@
 
 @media (min-width: 740px) {
   .nav {
-    justify-content: center;
+    justify-content: space-evenly;
   }
   .hamburger,
   .menu {
     display: none;
   }
 
-  .links {
-    margin: 0 25em;
-  }
   .links ul {
     display: flex;
     list-style: none;
