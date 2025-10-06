@@ -1,0 +1,146 @@
+.shopContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 3.4em;
+}
+
+.heroSection {
+  width: 100%;
+  max-width: 100%;
+}
+
+.imageStyles {
+  width: 100%;
+  height: auto;
+}
+.imageStyles img {
+  display: block;
+  width: 100%;
+  height: 187.5px;
+  object-fit: cover;
+  max-height: 380px;
+}
+
+/* ------------------------------------------------------*/
+
+.introSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em;
+}
+
+.introWrapper {
+  margin-bottom: 1em;
+}
+.introHeading {
+  font-weight: 600;
+  font-size: 2em;
+  background: linear-gradient(
+    270deg,
+    #a855f7,
+    #9333ea,
+    #3b82f6,
+    #ec4899,
+    #7e22ce,
+    #a855f7
+  );
+  background-size: 600% 600%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  letter-spacing: -0.5px;
+  animation: gradient 8s ease infinite;
+}
+
+.introTextWrapper p {
+  font-size: 1.1rem;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ------------------------------------------- */
+
+.productContainer {
+  width: 100%;
+  display: flex;
+  padding: 0 0.5em;
+  border: 1px solid red;
+}
+
+.productFilterWrapper {
+  border: 1px solid black;
+}
+
+.filterBtn {
+  padding: 4px 10px;
+  font-size: 0.875rem;
+}
+.filterBtn svg {
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+}
+
+/* ------------------------------------------- */
+
+.productListContainer {
+  display: flex;
+}
+.filterOptionsOnMobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 100vh;
+  background-color: #7e22ce;
+  z-index: 2000; /* make sure it sits above other elements */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.filterOptionsOnMobile.show {
+  transform: translateX(0);
+}
+/* -----------------For Larger Screens---------------- */
+@media (min-width: 740px) {
+  .imageStyles img {
+    height: auto;
+    min-width: 100%;
+  }
+
+  /* ----introSection----- */
+
+  .introSection {
+    padding: 4.5em;
+  }
+  .introHeading {
+    font-size: 2.5em;
+  }
+
+  /* ----productContainer---- */
+
+  .productContainer {
+    padding: 0 4.5em;
+  }
+
+  /* -----productListContainer------ */
+  .filterOptionsOnMobile {
+    display: none;
+  }
+}
