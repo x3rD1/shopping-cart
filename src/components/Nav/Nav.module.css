@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 1em;
   position: fixed;
   top: 0;
   left: 0;
@@ -14,15 +15,42 @@
 }
 
 .logo {
-  padding: 8px 0 0 20px;
+  padding: 8px 4px 0;
 }
+
 .logo img {
   width: 40px;
   height: 40px;
 }
 
+.nav_right_container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav_right_container svg {
+  width: 32px;
+  height: 32px;
+}
+.cart {
+  position: relative;
+}
+.cart sup {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+}
+.cart,
+.profile {
+  padding-top: 4px;
+}
+
+.profileBtn {
+  border: none;
+}
 .hamburgerContainer {
-  padding-right: 20px;
+  padding: 0 8px;
 }
 .hamburger {
   display: flex;
@@ -75,6 +103,33 @@
   color: rgb(255, 255, 255);
 }
 
+.login {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(183, 148, 244);
+  border: 1px solid rebeccapurple;
+  gap: 6px;
+  top: 100%;
+  right: 21%;
+  transition: all 0.5s ease-in-out;
+  padding: 6px;
+}
+
+.login button {
+  padding: 10px 15px;
+  border-radius: 32px;
+  border: none;
+  font-size: 1.075em;
+  cursor: pointer;
+}
+
+.login button {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #a06af7;
+}
+
 /* Effects */
 .menuOpen {
   transform: translateX(0);
@@ -84,9 +139,21 @@
   transform: translateX(180px);
   pointer-events: none;
 }
+
+.loginOpen {
+  transform-origin: top;
+  transform: translateY(0px) scale(1);
+  pointer-events: auto;
+  opacity: 1;
+}
+.loginClose {
+  transform-origin: top;
+  transform: translateY(-15px) scale(0);
+  pointer-events: none;
+  opacity: 0;
+}
 /* Hide desktop version of ul */
-ul,
-.nav_right_container {
+.links ul {
   display: none;
 }
 
@@ -97,19 +164,21 @@ ul,
 
 @media (min-width: 740px) {
   .nav {
-    /* background-color: aquamarine; */
-    padding: 0.75em 3em;
+    justify-content: center;
   }
   .hamburger,
   .menu {
     display: none;
   }
 
-  ul {
+  .links {
+    margin: 0 25em;
+  }
+  .links ul {
     display: flex;
     list-style: none;
     gap: 4px;
-    padding-right: 3em;
+    padding-left: 4em;
   }
 
   li a {
@@ -128,26 +197,14 @@ ul,
     display: flex;
     gap: 12px;
   }
-
-  .login {
-    display: flex;
-    gap: 6px;
+  .nav_right_container svg {
+    width: 42px;
+    height: 42px;
   }
 
-  .login button {
-    padding: 10px 20px;
-    border-radius: 32px;
-    border: none;
-    font-size: 1.075em;
+  .profileBtn {
     cursor: pointer;
-  }
-
-  .login button:first-child {
-    background-color: #a06af744;
-  }
-  .login button:last-child {
-    background-color: #a06af7;
-    color: #f5f5f5;
+    padding-bottom: 1px;
   }
 
   .cart a {
@@ -155,21 +212,36 @@ ul,
     display: flex;
     align-items: start;
     color: inherit;
-    padding: 0;
   }
-
-  .svg_wrapper {
-    display: inline-block;
-    padding: 10px;
+  .cart a:hover {
+    color: inherit;
   }
-  sup {
-    position: absolute;
-    top: 2%;
-    right: -6%;
+  .cart a svg {
+    padding-bottom: 4px;
+  }
+  .cart sup {
+    font-size: 1.1rem;
+    font-weight: 600;
+    top: 11px;
+    right: 0.75em;
+    color: rgb(85, 59, 107);
   }
 
   .svg_wrapper:hover {
     color: #a06af7;
+  }
+
+  .profile {
+    display: grid;
+    place-items: center;
+    padding-top: 6px;
+  }
+
+  .login,
+  .loginOpen,
+  .loginClose {
+    display: none;
+    pointer-events: none;
   }
 }
 /* .nav {
