@@ -41,14 +41,6 @@ function Nav() {
               setIsOpen(false);
             }}
           >
-            <div
-              className={`${styles.login} ${
-                isLoginOpen ? styles.loginOpen : styles.loginClose
-              }`}
-            >
-              <button>Login</button>
-              <button>Sign up</button>
-            </div>
             <svg
               width="42px"
               height="42px"
@@ -123,6 +115,14 @@ function Nav() {
               </g>
             </svg>
           </button>
+          <div
+            className={`${styles.login} ${
+              isLoginOpen ? styles.loginOpen : styles.loginClose
+            }`}
+          >
+            <button>Login</button>
+            <button>Sign up</button>
+          </div>
         </div>
 
         <div className={styles.cart}>
