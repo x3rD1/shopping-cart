@@ -1,9 +1,9 @@
-// import { useOutletContext } from "react-router";
+import { useOutletContext } from "react-router";
 import { useState } from "react";
 import styles from "./Shop.module.css";
 function Shop() {
   const [isFilter, setIsFilter] = useState(false);
-  // const products = useOutletContext();
+  const products = useOutletContext();
   return (
     <div className={styles.shopContainer}>
       <div className={styles.heroSection}>
@@ -66,7 +66,7 @@ function Shop() {
           </div>
         </div>
 
-        <div className={styles.productListContainer}>
+        <div className={styles.filterOptionsOnMobileContainer}>
           <div
             className={`${styles.filterOptionsOnMobile} ${
               isFilter ? styles.show : ""
@@ -82,12 +82,12 @@ function Shop() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   {/* Background circle */}
-                  <circle cx="12" cy="12" r="12" fill="#a06af7" />
+                  <circle cx="12" cy="12" r="12" fill="white" />
 
                   {/* X shape */}
                   <path
                     d="M14.5 9.5L9.5 14.5M9.5 9.5L14.5 14.5"
-                    stroke="#ffffff"
+                    stroke="#a06af7"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                   />
@@ -150,6 +150,27 @@ function Shop() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className={styles.productListContainer}>
+          <div className={styles.filterOptionsOnDesktopContainer}></div>
+          <div className={styles.productListWrapper}>
+            <ul>
+              {products.map((product) => {
+                return (
+                  <li key={product.id}>
+                    <div className={styles.productImage}>
+                      <img src={product.image} alt="product image" />
+                    </div>
+                    <div className={styles.productInfoWrapper}>
+                      <p>{product.title}</p>
+                      <span>${product.price}</span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>
