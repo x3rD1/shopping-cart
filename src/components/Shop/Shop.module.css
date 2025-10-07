@@ -97,7 +97,7 @@
   margin-left: 10px;
 }
 
-/* ------------------------------------------- */
+/* ------------productListContainer------------------ */
 
 .productListContainer {
   display: flex;
@@ -108,14 +108,64 @@
   left: 0;
   width: 80vw;
   height: 100vh;
-  background-color: #7e22ce;
+  border: 1px solid rebeccapurple;
+  background-color: white;
   z-index: 2000; /* make sure it sits above other elements */
   transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.6s ease-in-out;
 }
 
 .filterOptionsOnMobile.show {
   transform: translateX(0);
+  opacity: 1;
+}
+
+.filterNavWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background-color: #c286fa73;
+}
+.filterNavWrapper h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.filterNavWrapper button {
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+  height: 28.8px;
+  border: none;
+  padding: 0;
+}
+
+.filterList {
+  text-align: start;
+  padding: 0 2em;
+  margin-top: 2em;
+}
+
+.genderWrapper h3,
+.categoryWrapper h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5em 0;
+}
+
+.genderOptions,
+.categoryOptions {
+  border-top: 1px solid #ccc;
+  padding: 0.5em 0.8em;
+}
+.genderOptions ul,
+.categoryOptions ul {
+  list-style: none;
+}
+.genderOptions li label,
+.categoryOptions li label {
+  display: flex;
+  justify-content: space-between;
 }
 /* -----------------For Larger Screens---------------- */
 @media (min-width: 740px) {

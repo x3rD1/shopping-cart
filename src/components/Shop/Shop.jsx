@@ -72,12 +72,84 @@ function Shop() {
               isFilter ? styles.show : ""
             }`}
           >
-            <button
-              className={styles.filterOptionsOnMobileClose}
-              onClick={() => setIsFilter((prev) => !prev)}
-            >
-              X
-            </button>
+            <div className={styles.filterNavWrapper}>
+              <h2>Filter</h2>
+              <button onClick={() => setIsFilter((prev) => !prev)}>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* Background circle */}
+                  <circle cx="12" cy="12" r="12" fill="#a06af7" />
+
+                  {/* X shape */}
+                  <path
+                    d="M14.5 9.5L9.5 14.5M9.5 9.5L14.5 14.5"
+                    stroke="#ffffff"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div className={styles.filterList}>
+              <div className={styles.genderWrapper}>
+                <h3>Gender</h3>
+
+                <div className={styles.genderOptions}>
+                  <ul>
+                    <li>
+                      <label htmlFor="all">
+                        All
+                        <input type="checkbox" id="all" />
+                      </label>
+                    </li>
+                    <li>
+                      <label htmlFor="men">
+                        Men
+                        <input type="checkbox" id="men" />
+                      </label>
+                    </li>
+                    <li>
+                      <label htmlFor="women">
+                        Women
+                        <input type="checkbox" id="women" />
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className={styles.categoryWrapper}>
+                <h3>Category</h3>
+
+                <div className={styles.categoryOptions}>
+                  <ul>
+                    <li>
+                      <label htmlFor="all_category">
+                        All
+                        <input type="checkbox" id="all_category" />
+                      </label>
+                    </li>
+                    <li>
+                      <label htmlFor="clothing">
+                        Clothing
+                        <input type="checkbox" id="clothing" />
+                      </label>
+                    </li>
+                    <li>
+                      <label htmlFor="jewelry">
+                        Jewelry
+                        <input type="checkbox" id="jewelry" />
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
