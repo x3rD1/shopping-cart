@@ -81,12 +81,12 @@
   display: flex;
   flex-direction: column;
   padding: 0 0.5em;
-  border: 1px solid rgb(25, 0, 255);
+  /* border: 1px solid rgb(25, 0, 255); */
 }
 
 .productFilterWrapper {
   flex-grow: 0;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .filterBtn {
@@ -198,10 +198,12 @@
 }
 
 /* -----------------productListContainer---------------- */
-
+.productFilterWrapper {
+  background-color: #c286fa59;
+}
 .productListContainer {
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 1em;
 }
 .productListWrapper ul {
