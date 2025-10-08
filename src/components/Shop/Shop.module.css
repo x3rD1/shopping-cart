@@ -105,8 +105,25 @@
   display: flex;
 }
 .productFilterWrapper {
+  display: flex;
+  justify-content: space-between;
   flex: 1;
   text-align: start;
+}
+.filterLayout {
+  height: 28px;
+}
+.filterLayoutGrid2 {
+  border: none;
+  background-color: transparent;
+}
+.filterLayoutGrid2 svg {
+  width: 32px;
+  height: 32px;
+  padding-bottom: 4px;
+}
+.filterLayoutGrid3 {
+  display: none;
 }
 .filterOptionsOnMobile {
   position: absolute;
@@ -191,11 +208,18 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   list-style: none;
-  gap: 6px;
+  gap: 10px;
 }
 .productListWrapper ul li {
+  width: 100%;
+}
+.productCard {
   display: flex;
   flex-direction: column;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
 }
 .productImage img {
   display: block;
@@ -238,11 +262,85 @@
   /* ----productContainer---- */
 
   .productContainer {
-    padding: 0 4.5em;
+    padding: 0 6em;
   }
 
+  .filterBtn {
+    padding: 0.5em 0.875em;
+    font-size: 1.05em;
+  }
   /* ----------- */
   .filterOptionsOnMobile {
     display: none;
+  }
+
+  /* ---------------------------- */
+  .productFilterWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .filterLayout {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.25em 1em 0 0;
+    height: 100%;
+  }
+  .filterLayoutGrid2 svg {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+  }
+  .filterLayoutGrid2,
+  .filterLayoutGrid3 {
+    display: block;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .productListWrapper ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+
+  .productCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 1em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+  .productCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .productImage {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75em;
+  }
+  .productImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .productInfoWrapper {
+    width: 100%;
+    text-align: center;
+  }
+  .productInfoWrapper p {
+    font-size: 1.025rem;
+    line-clamp: 1;
+    margin: 0.25em 0;
+    -webkit-line-clamp: 1;
+  }
+  .productInfoWrapper span {
+    font-size: 0.875rem;
   }
 }
