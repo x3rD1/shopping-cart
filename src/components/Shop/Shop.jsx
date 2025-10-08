@@ -228,6 +228,9 @@ function Shop() {
                         <p>{product.title}</p>
                         <span>${product.price}</span>
                       </div>
+                      <button className={styles.addToCartWrapper}>
+                        <span>ADD TO CART</span>
+                      </button>
                     </div>
                   </li>
                 );
