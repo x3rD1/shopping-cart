@@ -264,7 +264,7 @@
   /* ----productContainer---- */
 
   .productContainer {
-    padding: 0 6em;
+    width: 80%;
   }
 
   .filterBtn {
@@ -299,6 +299,10 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+  }
+
+  .productListWrapper {
+    width: 100%;
   }
   .productListWrapper ul {
     grid-template-columns: repeat(2, 1fr);
