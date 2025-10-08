@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./Shop.module.css";
 function Shop() {
   const [isFilter, setIsFilter] = useState(false);
-  const [layout, setLayout] = useState({ grid2: true, grid3: false });
+  const [layout, setLayout] = useState({ grid2: false, grid3: false });
   const products = useOutletContext();
   return (
     <div className={styles.shopContainer}>

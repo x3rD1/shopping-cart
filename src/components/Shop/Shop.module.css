@@ -301,7 +301,7 @@
     cursor: pointer;
   }
   .productListWrapper ul {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2em;
   }
 
@@ -344,5 +344,12 @@
   }
   .productInfoWrapper span {
     font-size: 0.875rem;
+  }
+}
+
+/* -------For large Desktop screens */
+@media (min-width: 2030px) {
+  .productListWrapper ul {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

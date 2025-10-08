@@ -25,7 +25,7 @@
 .imageWrapper img {
   display: block;
   object-fit: cover;
-
+  min-width: 100%;
   opacity: 0;
   animation: fadeInImage 1.3s ease-out forwards;
 }
