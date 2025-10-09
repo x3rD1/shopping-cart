@@ -1,10 +1,11 @@
-import { useOutletContext } from "react-router";
+import { Link, useOutletContext } from "react-router";
 import { useState } from "react";
 import styles from "./Shop.module.css";
 function Shop() {
   const [isFilter, setIsFilter] = useState(false);
   const [layout, setLayout] = useState({ grid2: false, grid3: false });
-  const products = useOutletContext();
+  const { products, setCart } = useOutletContext();
+
   return (
     <div className={styles.shopContainer}>
       <div className={styles.heroSection}>
@@ -220,18 +221,26 @@ function Shop() {
               {products.map((product) => {
                 return (
                   <li key={product.id}>
-                    <div className={styles.productCard}>
-                      <div className={styles.productImage}>
-                        <img src={product.image} alt="product image" />
+                    <Link to={`/products/${product.title}`}>
+                      <div className={styles.productCard}>
+                        <div className={styles.productImage}>
+                          <img src={product.image} alt="product image" />
+                        </div>
+                        <div className={styles.productInfoWrapper}>
+                          <p>{product.title}</p>
+                          <span>${product.price}</span>
+                        </div>
+                        <button
+                          className={styles.addToCartWrapper}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setCart((prev) => [...prev, product]);
+                          }}
+                        >
+                          <span>ADD TO CART</span>
+                        </button>
                       </div>
-                      <div className={styles.productInfoWrapper}>
-                        <p>{product.title}</p>
-                        <span>${product.price}</span>
-                      </div>
-                      <button className={styles.addToCartWrapper}>
-                        <span>ADD TO CART</span>
-                      </button>
-                    </div>
+                    </Link>
                   </li>
                 );
               })}

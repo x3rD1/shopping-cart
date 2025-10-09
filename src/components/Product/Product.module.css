@@ -1,0 +1,11 @@
+.productContainer {
+  width: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.productContainer h1 {
+  font-size: 2rem;
+}

@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
+  const cartLength = cart.length;
+  console.log(cart);
+  console.log(cartLength);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,9 +26,9 @@ function App() {
 
   return (
     <>
-      <Nav />
+      <Nav cartLength={cartLength} />
       <main>
-        <Outlet context={products} />
+        <Outlet context={{ products, setCart }} />
       </main>
     </>
   );

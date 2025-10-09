@@ -178,14 +178,14 @@
     padding-left: 4em;
   }
 
-  li a {
+  .links li a {
     border-radius: 32px;
     font-weight: 600;
     padding: 10px 20px;
     color: #a06af7;
   }
 
-  li a:hover {
+  .links li a:hover {
     background-color: #a06af7;
     color: #f7eeee;
   }

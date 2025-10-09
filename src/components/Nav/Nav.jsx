@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import styles from "./Nav.module.css";
 
-function Nav() {
+function Nav({ cartLength }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
@@ -160,7 +160,7 @@ function Nav() {
               </g>
             </svg>
 
-            <sup>0</sup>
+            <sup>{cartLength}</sup>
           </Link>
         </div>
 

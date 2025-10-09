@@ -215,6 +215,10 @@
 .productListWrapper ul li {
   width: 100%;
 }
+.productListWrapper ul li a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 .productCard {
   position: relative;
   display: flex;
