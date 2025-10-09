@@ -1,11 +1,43 @@
 import { Link, useOutletContext } from "react-router";
 import { useState } from "react";
 import styles from "./Shop.module.css";
+
 function Shop() {
   const [isFilter, setIsFilter] = useState(false);
   const [layout, setLayout] = useState({ grid2: false, grid3: false });
-  const { products, setCart } = useOutletContext();
+  const { products, filtered, setFiltered, setCart } = useOutletContext();
 
+  const [showFiltered, setShowFiltered] = useState({
+    all: true,
+    men: false,
+    women: false,
+    clothing: false,
+    jewelry: false,
+  });
+  function handleFilter(e, key) {
+    const checked = e.target.checked;
+
+    setShowFiltered({
+      all: key === "all",
+      men: key === "men",
+      women: key === "women",
+      clothing: key === "clothing",
+      jewelry: key === "jewelry",
+    });
+
+    if (key === "all") {
+      setFiltered(products);
+      return;
+    }
+    if (checked) {
+      const filteredProducts = products.filter((product) =>
+        product.category.toLowerCase().match(new RegExp(`\\b${key}\\b`, "i"))
+      );
+      setFiltered(filteredProducts);
+    } else {
+      setFiltered(products);
+    }
+  }
   return (
     <div className={styles.shopContainer}>
       <div className={styles.heroSection}>
@@ -157,19 +189,37 @@ function Shop() {
                     <li>
                       <label htmlFor="all">
                         All
-                        <input type="checkbox" id="all" />
+                        <input
+                          type="radio"
+                          id="all"
+                          name="gender_mobile"
+                          checked={showFiltered.all}
+                          onChange={(e) => handleFilter(e, "all")}
+                        />
                       </label>
                     </li>
                     <li>
                       <label htmlFor="men">
                         Men
-                        <input type="checkbox" id="men" />
+                        <input
+                          type="radio"
+                          id="men"
+                          name="gender_mobile"
+                          checked={showFiltered.men}
+                          onChange={(e) => handleFilter(e, "men")}
+                        />
                       </label>
                     </li>
                     <li>
                       <label htmlFor="women">
                         Women
-                        <input type="checkbox" id="women" />
+                        <input
+                          type="radio"
+                          id="women"
+                          name="gender_mobile"
+                          checked={showFiltered.women}
+                          onChange={(e) => handleFilter(e, "women")}
+                        />
                       </label>
                     </li>
                   </ul>
@@ -182,21 +232,26 @@ function Shop() {
                 <div className={styles.categoryOptions}>
                   <ul>
                     <li>
-                      <label htmlFor="all_category">
-                        All
-                        <input type="checkbox" id="all_category" />
-                      </label>
-                    </li>
-                    <li>
                       <label htmlFor="clothing">
                         Clothing
-                        <input type="checkbox" id="clothing" />
+                        <input
+                          type="radio"
+                          id="clothing"
+                          name="category_mobile"
+                          checked={showFiltered.clothing}
+                          onChange={(e) => handleFilter(e, "clothing")}
+                        />
                       </label>
                     </li>
                     <li>
                       <label htmlFor="jewelry">
                         Jewelry
-                        <input type="checkbox" id="jewelry" />
+                        <input
+                          type="radio"
+                          id="jewelry"
+                          checked={showFiltered.jewelry}
+                          onChange={(e) => handleFilter(e, "jewel")}
+                        />
                       </label>
                     </li>
                   </ul>
@@ -207,7 +262,94 @@ function Shop() {
         </div>
 
         <div className={styles.productListContainer}>
-          <div className={styles.filterOptionsOnDesktopContainer}></div>
+          <div
+            className={styles.filterOptionsOnDesktopContainer}
+            style={{ display: `${isFilter ? "block" : "none"}` }}
+          >
+            <div className={styles.filterTitleOnDesktop}>
+              {" "}
+              <h2>Filter Products</h2>
+            </div>
+            <div className={styles.filterListOnDesktop}>
+              <div className={styles.genderWrapperDesktop}>
+                <h3>Gender</h3>
+
+                <div className={styles.genderOptionsDesktop}>
+                  <ul>
+                    <li>
+                      <label htmlFor="ALL">
+                        All
+                        <input
+                          type="radio"
+                          id="ALL"
+                          name="gender"
+                          checked={showFiltered.all}
+                          onChange={(e) => handleFilter(e, "all")}
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label htmlFor="MEN">
+                        Men
+                        <input
+                          type="radio"
+                          id="MEN"
+                          name="gender"
+                          checked={showFiltered.men}
+                          onChange={(e) => handleFilter(e, "men")}
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label htmlFor="WOMEN">
+                        Women
+                        <input
+                          type="radio"
+                          id="WOMEN"
+                          name="gender"
+                          checked={showFiltered.women}
+                          onChange={(e) => handleFilter(e, "women")}
+                        />
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className={styles.categoryWrapperDesktop}>
+                <h3>Category</h3>
+
+                <div className={styles.categoryOptionsDesktop}>
+                  <ul>
+                    <li>
+                      <label htmlFor="CLOTHING">
+                        Clothing
+                        <input
+                          type="radio"
+                          id="CLOTHING"
+                          name="category"
+                          checked={showFiltered.clothing}
+                          onChange={(e) => handleFilter(e, "clothing")}
+                        />
+                      </label>
+                    </li>
+                    <li>
+                      <label htmlFor="JEWELRY">
+                        Jewelry
+                        <input
+                          type="radio"
+                          id="JEWELRY"
+                          name="category"
+                          checked={showFiltered.jewelry}
+                          onChange={(e) => handleFilter(e, "jewel")}
+                        />
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className={styles.productListWrapper}>
             <ul
               style={{
@@ -218,7 +360,7 @@ function Shop() {
                   : "",
               }}
             >
-              {products.map((product) => {
+              {filtered.map((product) => {
                 return (
                   <li key={product.id}>
                     <Link to={`/products/${product.title.replace(/\//g, "")}`}>

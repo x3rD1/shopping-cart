@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState(products);
   const [cart, setCart] = useState([]);
 
   const cartLength = cart.length;
-  console.log(cart);
-  console.log(cartLength);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
         setProducts(data);
+        setFiltered(data);
       } catch (error) {
         alert(error);
       }
@@ -28,7 +28,7 @@ function App() {
     <>
       <Nav cartLength={cartLength} />
       <main>
-        <Outlet context={{ products, setCart }} />
+        <Outlet context={{ products, filtered, setFiltered, setCart }} />
       </main>
     </>
   );

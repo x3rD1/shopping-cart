@@ -126,7 +126,7 @@
   display: none;
 }
 .filterOptionsOnMobile {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 80vw;
@@ -263,10 +263,17 @@
   transition: opacity 0.2s ease;
   border: 1px solid rgb(85, 59, 107);
 }
+
+/* ------Hide desktop version elements--------------- */
+.filterOptionsOnDesktopContainer,
+.filterTitleOnDesktop,
+.filterListOnDesktop {
+  display: none;
+}
 /* -----------------For Larger Screens---------------- */
 @media (min-width: 740px) {
   .imageStyles img {
-    height: auto;
+    height: 380px;
     min-width: 100%;
   }
 
@@ -319,6 +326,56 @@
     cursor: pointer;
   }
 
+  .filterOptionsOnDesktopContainer,
+  .filterTitleOnDesktop,
+  .filterListOnDesktop {
+    display: block;
+  }
+  .filterOptionsOnDesktopContainer {
+    border: 1px solid #ccccccb2;
+    min-width: 20%;
+    height: fit-content;
+    padding: 1em;
+    border-radius: 12px;
+  }
+  .filterOptionsOnDesktopContainer h2 {
+    text-align: start;
+    font-weight: 500;
+  }
+  .filterListOnDesktop {
+    text-align: start;
+    padding: 0 2em;
+    margin-top: 2em;
+  }
+  .genderWrapperDesktop h3,
+  .categoryWrapperDesktop h3 {
+    text-align: start;
+    padding: 12.8px 0;
+    font-weight: 500;
+  }
+
+  .genderOptionsDesktop,
+  .categoryOptionsDesktop {
+    border-top: 1px solid #ccc;
+    padding: 0.5em 0.8em;
+  }
+  .genderOptionsDesktop ul,
+  .categoryOptionsDesktop ul {
+    list-style: none;
+  }
+  .genderOptionsDesktop ul li,
+  .categoryOptionsDesktop ul li {
+    margin-bottom: 0.775em;
+  }
+  .genderOptionsDesktop li label,
+  .categoryOptionsDesktop li label {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .productListContainer {
+    gap: 2em;
+  }
   .productListWrapper {
     width: 100%;
   }
