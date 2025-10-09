@@ -249,8 +249,9 @@ function Shop() {
                         <input
                           type="radio"
                           id="jewelry"
+                          name="category_mobile"
                           checked={showFiltered.jewelry}
-                          onChange={(e) => handleFilter(e, "jewel")}
+                          onChange={(e) => handleFilter(e, "jewelery")}
                         />
                       </label>
                     </li>
@@ -341,7 +342,7 @@ function Shop() {
                           id="JEWELRY"
                           name="category"
                           checked={showFiltered.jewelry}
-                          onChange={(e) => handleFilter(e, "jewel")}
+                          onChange={(e) => handleFilter(e, "jewelery")}
                         />
                       </label>
                     </li>
