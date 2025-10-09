@@ -221,7 +221,7 @@ function Shop() {
               {products.map((product) => {
                 return (
                   <li key={product.id}>
-                    <Link to={`/products/${product.title}`}>
+                    <Link to={`/products/${product.title.replace(/\//g, "")}`}>
                       <div className={styles.productCard}>
                         <div className={styles.productImage}>
                           <img src={product.image} alt="product image" />
