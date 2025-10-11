@@ -33,6 +33,19 @@ function Product() {
                     <button className="increase">+</button>
                   </div>
                 </div>
+                <div className={styles.itemSubmitBtn}>
+                  <div className={styles.itemAddBtn}>
+                    <button>
+                      <span>Add to Cart</span>
+                      <span>•</span>
+                      <span>${item.price}</span>
+                    </button>
+                  </div>
+                </div>
+                <div className={styles.descriptionWrapper}>
+                  <h3>Description</h3>
+                  <p>{item.description}</p>
+                </div>
               </div>
             </div>
           </div>

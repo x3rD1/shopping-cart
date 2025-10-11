@@ -63,6 +63,32 @@
   border: none;
 }
 
+.itemSubmitBtn {
+  margin-top: 1.2em;
+  width: 100%;
+}
+.itemAddBtn {
+  width: 100%;
+}
+.itemAddBtn button {
+  width: 100%;
+  max-width: 100%;
+  padding: 1em;
+  background-color: #af7ae0;
+  color: #ffffff;
+  border: none;
+}
+.itemAddBtn button span:nth-child(2) {
+  padding: 0 0.4em;
+}
+
+.descriptionWrapper {
+  padding-top: 1.5em;
+}
+.descriptionWrapper h3 {
+  font-size: 1rem;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
