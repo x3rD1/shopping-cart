@@ -43,7 +43,7 @@ function Product() {
                   </div>
                 </div>
                 <div className={styles.descriptionWrapper}>
-                  <h3>Description</h3>
+                  <h3>DESCRIPTION</h3>
                   <p>{item.description}</p>
                 </div>
               </div>
