@@ -7,7 +7,9 @@ function Product() {
   const { name } = useParams();
   const { products, setCart } = useOutletContext();
 
-  const item = products.find((product) => product.title === name);
+  const item = products.find(
+    (product) => product.title.replace(/\//g, "") === name
+  );
 
   function handleQuantity(e) {
     if (e.target.name === "input") {
