@@ -144,4 +144,8 @@ input[type="number"] {
   .itemSubmitBtn button {
     cursor: pointer;
   }
+
+  .itemAddBtn button span {
+    font-size: 0.925rem;
+  }
 }

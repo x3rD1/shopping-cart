@@ -48,7 +48,7 @@ function Nav({ cartLength }) {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_15_82)">
+              <g clipPath="url(#clip0_15_82)">
                 <rect width="24" height="24" fill="none"></rect>
                 <g filter="url(#filter0_d_15_82)">
                   <path
@@ -65,10 +65,10 @@ function Nav({ cartLength }) {
                   width="18.8911"
                   height="19"
                   filterUnits="userSpaceOnUse"
-                  color-interpolation-filters="sRGB"
+                  colorInterpolationFilters="sRGB"
                 >
                   <feFlood
-                    flood-opacity="0"
+                    floodOpacity="0"
                     result="BackgroundImageFix"
                   ></feFlood>
                   <feColorMatrix
