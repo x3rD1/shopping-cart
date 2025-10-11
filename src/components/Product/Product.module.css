@@ -54,6 +54,9 @@
   font-size: 1rem;
   border: none;
 }
+.itemQuantity input:focus {
+  outline: none;
+}
 .itemQuantity button {
   padding: 0 0.6em;
   background-color: transparent;
@@ -110,7 +113,7 @@ input[type="number"] {
   }
 
   .imageWrapper img {
-    min-width: 100%;
+    width: 584px;
     height: 525.6px;
     object-fit: contain;
   }
@@ -135,5 +138,10 @@ input[type="number"] {
 
   .itemSubmitBtn button {
     height: 56px;
+  }
+
+  .itemQuantity button,
+  .itemSubmitBtn button {
+    cursor: pointer;
   }
 }

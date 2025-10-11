@@ -1,11 +1,33 @@
 import { useOutletContext, useParams } from "react-router";
 import styles from "./Product.module.css";
+import { useState } from "react";
 function Product() {
+  const [quantity, setQuantity] = useState(1);
+
   const { name } = useParams();
-  const { products } = useOutletContext();
+  const { products, setCart } = useOutletContext();
 
   const item = products.find((product) => product.title === name);
 
+  function handleQuantity(e) {
+    if (e.target.name === "input") {
+      setQuantity(e.target.value >= 1 && Number(e.target.value));
+    }
+
+    if (e.target.className === "decrease" && quantity !== 1) {
+      setQuantity((prev) => prev - 1);
+    }
+
+    if (e.target.className === "increase") {
+      setQuantity((prev) => prev + 1);
+    }
+  }
+
+  function handleAddToCart(item, quantity) {
+    for (let i = 0; i < quantity; i++) {
+      setCart((prev) => [...prev, item]);
+    }
+  }
   return (
     <>
       {item ? (
@@ -24,21 +46,31 @@ function Product() {
                   <span>No reviews found</span>
                 </div>
                 <div className={styles.itemPrice}>
-                  <span>${item.price}</span>
+                  <span>${item.price.toFixed(2)}</span>
                 </div>
                 <div className={styles.itemQuantityWrapper}>
                   <div className={styles.itemQuantity}>
-                    <button className="decrease">-</button>
-                    <input type="number" min="1" value="1" />
-                    <button className="increase">+</button>
+                    <button className="decrease" onClick={handleQuantity}>
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      name="input"
+                      onChange={handleQuantity}
+                    />
+                    <button className="increase" onClick={handleQuantity}>
+                      +
+                    </button>
                   </div>
                 </div>
                 <div className={styles.itemSubmitBtn}>
                   <div className={styles.itemAddBtn}>
-                    <button>
+                    <button onClick={() => handleAddToCart(item, quantity)}>
                       <span>Add to Cart</span>
                       <span>•</span>
-                      <span>${item.price}</span>
+                      <span>${(item.price * quantity).toFixed(2)}</span>
                     </button>
                   </div>
                 </div>
