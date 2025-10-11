@@ -27,7 +27,7 @@
 }
 
 .itemTitle h1 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1.25em;
 }
 
@@ -46,17 +46,30 @@
 }
 .itemQuantity {
   display: flex;
-  max-width: 75px;
-  border: 1px solid rgb(85, 59, 107);
+  max-width: 72px;
+  padding: 0.4em 0;
+  border: 1px solid rgba(85, 59, 107, 0.438);
 }
 .itemQuantity input {
   width: 100%;
   max-width: 100%;
   text-align: center;
+  font-size: 1rem;
   border: none;
 }
 .itemQuantity button {
   padding: 0 0.6em;
   background-color: transparent;
   border: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
