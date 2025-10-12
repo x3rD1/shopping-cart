@@ -385,11 +385,9 @@
     transform: translateY(-4px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
-  .productCard:hover .addToCartWrapper {
-    opacity: 1;
-    visibility: visible;
+  .addToCartWrapper {
+    display: none;
   }
-
   .productImage {
     width: 100%;
     height: 400px;
@@ -416,7 +414,9 @@
   .productInfoWrapper span {
     font-size: 0.875rem;
   }
+}
 
+@media (min-width: 920px) {
   .addToCartWrapper {
     display: block;
     position: absolute;
@@ -435,8 +435,11 @@
   .addToCartWrapper:hover {
     color: #00000088;
   }
+  .productCard:hover .addToCartWrapper {
+    opacity: 1;
+    visibility: visible;
+  }
 }
-
 /* -------For large Desktop screens */
 @media (min-width: 2030px) {
   .productListWrapper ul {
