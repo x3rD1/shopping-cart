@@ -1,11 +1,8 @@
 import { useOutletContext, useParams } from "react-router";
 import styles from "./Product.module.css";
-import { useState } from "react";
 function Product() {
-  const [quantity, setQuantity] = useState(1);
-
   const { name } = useParams();
-  const { products, setCart } = useOutletContext();
+  const { products, setCart, quantity, setQuantity } = useOutletContext();
 
   const item = products.find(
     (product) => product.title.replace(/\//g, "") === name

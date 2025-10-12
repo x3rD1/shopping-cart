@@ -7,7 +7,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState(products);
   const [cart, setCart] = useState([]);
-
+  const [quantity, setQuantity] = useState(1);
   const cartLength = cart.length;
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +28,18 @@ function App() {
     <>
       <Nav cartLength={cartLength} />
       <main>
-        <Outlet context={{ products, filtered, setFiltered, setCart }} />
+        <Outlet
+          context={{
+            products,
+            filtered,
+            setFiltered,
+            setCart,
+            cart,
+            cartLength,
+            quantity,
+            setQuantity,
+          }}
+        />
       </main>
     </>
   );

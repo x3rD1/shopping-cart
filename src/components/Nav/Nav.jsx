@@ -21,13 +21,19 @@ function Nav({ cartLength }) {
             <Link to="shop">Shop</Link>
           </li>
           <li>
-            <a href="#">Sale</a>
+            <a href="#" onClick={(e) => e.preventDefault()}>
+              Sale
+            </a>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <a href="#" onClick={(e) => e.preventDefault()}>
+              Blog
+            </a>
           </li>
           <li>
-            <a href="#">Showcase</a>
+            <a href="#" onClick={(e) => e.preventDefault()}>
+              Showcase
+            </a>
           </li>
         </ul>
       </div>
