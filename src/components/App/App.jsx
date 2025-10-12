@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import Nav from "../Nav/Nav";
 import "./App.css";
 import { useEffect, useState } from "react";
+import ScrollToTop from "../ScrollToTop";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Nav cartLength={cartLength} />
       <main>
         <Outlet
