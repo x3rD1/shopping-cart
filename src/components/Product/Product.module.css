@@ -101,12 +101,25 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+.goBack {
+  display: none;
+}
+
 @media (min-width: 740px) {
   .itemContainer {
+    position: relative;
     margin: 0;
     padding-top: 3.4em;
     height: 100vh;
   }
+
+  .goBack {
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 30px;
+  }
+
   .itemWrapper {
     height: 100%;
     flex-direction: row;

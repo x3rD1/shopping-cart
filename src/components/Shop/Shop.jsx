@@ -1,11 +1,22 @@
-import { Link, useOutletContext } from "react-router";
-import { useState } from "react";
+import { Link, useLocation, useOutletContext } from "react-router";
+import { useEffect, useState } from "react";
 import styles from "./Shop.module.css";
 
 function Shop() {
   const [isFilter, setIsFilter] = useState(false);
   const [layout, setLayout] = useState({ grid2: false, grid3: false });
   const { products, filtered, setFiltered, setCart } = useOutletContext();
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
 
   const [showFiltered, setShowFiltered] = useState({
     all: true,
@@ -59,7 +70,7 @@ function Shop() {
         </div>
       </div>
 
-      <div className={styles.productContainer}>
+      <div className={styles.productContainer} id="productList">
         <div className={styles.productFilterWrapper}>
           <div className={styles.filter}>
             <button

@@ -1,4 +1,4 @@
-import { useOutletContext, useParams } from "react-router";
+import { Link, useOutletContext, useParams } from "react-router";
 import styles from "./Product.module.css";
 function Product() {
   const { name } = useParams();
@@ -31,6 +31,38 @@ function Product() {
     <>
       {item ? (
         <div className={styles.itemContainer}>
+          <div className={styles.goBack}>
+            <Link
+              to="/shop#productList"
+              onClick={() =>
+                setTimeout(() => {
+                  setQuantity(1);
+                }, 500)
+              }
+            >
+              <svg
+                width="48px"
+                height="48px"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <path
+                    d="m 12 2 c 0 -0.265625 -0.105469 -0.519531 -0.292969 -0.707031 c -0.390625 -0.390625 -1.023437 -0.390625 -1.414062 0 l -6 6 c -0.1875 0.1875 -0.292969 0.441406 -0.292969 0.707031 s 0.105469 0.519531 0.292969 0.707031 l 6 6 c 0.390625 0.390625 1.023437 0.390625 1.414062 0 c 0.1875 -0.1875 0.292969 -0.441406 0.292969 -0.707031 s -0.105469 -0.519531 -0.292969 -0.707031 l -5.292969 -5.292969 l 5.292969 -5.292969 c 0.1875 -0.1875 0.292969 -0.441406 0.292969 -0.707031 z m 0 0"
+                    fill="#553b6b"
+                  ></path>{" "}
+                </g>
+              </svg>
+            </Link>
+          </div>
           <div className={styles.itemWrapper}>
             <div className={styles.imageWrapper}>
               <img src={item.image} alt="product image" />
