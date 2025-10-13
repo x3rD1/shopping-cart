@@ -18,7 +18,7 @@ function Cart() {
   function handleRemoveItem(itemToRemove) {
     if (itemCount[itemToRemove.title] >= 1) {
       setCart((prev) => {
-        const index = cart.findIndex((item) => item === itemToRemove);
+        const index = cart.findLastIndex((item) => item === itemToRemove);
         return index !== -1
           ? [...prev.slice(0, index), ...prev.slice(index + 1)]
           : prev;
